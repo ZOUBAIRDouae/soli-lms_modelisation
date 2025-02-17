@@ -21,14 +21,15 @@ class ReponseQuestion {
   duree : int
 }
 
-Apprenant --> ReponseQuestion
-ReponseQuestion --> Qcm
+
 OptionQuestion --> Question
 ReponseQuestion --> Question
 BrancheQuestion --> "*" Question
-ReponseQuestion --> Apprenant
+ReponseQuestion <-- Apprenant
 ReponseQuestion --> "*" OptionQuestion
 Qcm --> BrancheQuestion
+Apprenant --> ReponseQcm
+ReponseQcm --> Qcm
 
 
 
