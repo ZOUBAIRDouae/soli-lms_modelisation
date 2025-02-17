@@ -1,0 +1,51 @@
+classDiagram
+
+namespace PkgPlanficationSessions {
+class Planification
+class Session
+class Module
+class Competence
+class Evaluation
+class Projet
+}
+
+namespace PkgCompetences {
+  class Competence 
+  class Module
+}
+
+namespace PkgCreationProjet {
+  class Projet
+}
+
+namespace PkgFormation {
+  class Module
+  class Formateur
+  class AnneeFormation
+}
+
+
+class Session{
+  date_debut : date
+  date_fin : date
+
+}
+%% type : cc1, cc2, EFM
+class Evaluation{
+  type : enum
+}
+class Planification{
+ 
+}
+
+
+Session "*" --> "*" Competence
+Session "1" --> "*" Evaluation
+Module --> "*" Competence
+Session --> "1" Projet
+Evaluation "*" --> "1" Module
+
+
+Planification "1" --> "*" Session
+Planification --> "1" Formateur  
+Planification --> "1" AnneeFormation

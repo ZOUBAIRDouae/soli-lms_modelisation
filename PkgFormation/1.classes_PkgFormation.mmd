@@ -1,0 +1,64 @@
+classDiagram
+
+namespace PkgFormation {
+  class Filiere
+  class Module
+  class Formateur
+  class AnneeFormation
+  class Specialite
+}
+
+namespace PkgApprenants {
+  class Groupe
+}
+class Filiere {
+  +id: bigint
+  +code: string
+  +nom: string
+  +description: text
+  +reference: string
+}
+
+class Module {
+  +id: bigint
+  +nom: string
+  +description: text
+}
+
+class Formateur {
+  +id: bigint
+  +matricule: string
+  +nom: string
+  +prenom: string
+}
+
+
+
+class Specialite {
+  +id: bigint
+  +nom: string
+  +description: text
+}
+
+class Filiere {
+  +id: bigint
+  +code: string
+  +nom: string
+  +description: text
+  +reference: string
+}
+
+class Module {
+  +id: bigint
+  +nom: string
+  +description: text
+}
+
+
+Module "*" --> "1" Filiere
+
+Formateur "*" --> "*" Groupe
+Formateur "*" --> "*" Specialite
+
+Groupe "*" --> "1" AnneeFormation
+Groupe "*" --> "1" Filiere

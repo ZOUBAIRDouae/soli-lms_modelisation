@@ -1,0 +1,61 @@
+classDiagram
+
+namespace PkgCreationProjet {
+  class Projet
+  class Livrable
+  class NatureLivrable
+  class TransfertCompetence
+  class Ressource
+}
+
+namespace PkgCompetences {
+  class Competence
+  class Technologie
+}
+
+namespace PkgUtilisateurs {
+  class Formateur
+}
+
+class Projet {
+  +id: bigint
+  +titre: string
+  +travail_a_faire: text
+  +critere_de_travail: text
+}
+
+class Livrable {
+  +id: bigint
+  +titre: string
+}
+
+class NatureLivrable {
+  +id: bigint
+  +nom: string
+  +description: text
+}
+
+class TransfertCompetence {
+  +id: bigint
+  +description: text
+}
+
+class Ressource {
+  +id: bigint
+  +nom: string
+  +lien: string
+  +description: text
+}
+
+Projet "*" --> "1" Formateur
+Projet "1" --> "*" Ressource
+Projet "1" --> "*" Livrable
+Projet "1" --> "*" TransfertCompetence
+
+Livrable "*" --> "1" NatureLivrable
+
+TransfertCompetence "*" --> "1" Competence
+TransfertCompetence "*" --> "1" Appreciation
+TransfertCompetence "*" --> "*" Technologie
+
+note for Appreciation "Renommer à Difficulté"
