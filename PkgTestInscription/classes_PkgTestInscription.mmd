@@ -1,0 +1,34 @@
+classDiagram
+
+namespace PkgTestInscription {
+  class Inscrit 
+  class Test
+  class Question
+  class OptionQuestion
+  class ReponseTest
+  class ReponseQuestion
+  class BrancheQuestion
+}
+
+%% type : Choix unique , choix multiple
+class Question{
+  type : string 
+
+
+}
+
+class ReponseTest {
+  duree : int
+}
+
+Inscrit --> ReponseTest
+ReponseTest --> Test
+OptionQuestion --> Question
+ReponseQuestion --> Question
+BrancheQuestion --> "*" Question
+ReponseQuestion --> Inscrit
+ReponseQuestion --> "*" OptionQuestion
+Test --> BrancheQuestion
+
+
+

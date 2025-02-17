@@ -1,0 +1,34 @@
+classDiagram
+
+namespace PkgQcm {
+  class Apprenant 
+  class Qcm
+  class Question
+  class OptionQuestion
+  class ReponseQcm
+  class ReponseQuestion
+  class BrancheQuestion
+}
+
+%% type : Choix unique , choix multiple
+class Question{
+  type : string 
+
+
+}
+
+class ReponseQuestion {
+  duree : int
+}
+
+Apprenant --> ReponseQuestion
+ReponseQuestion --> Qcm
+OptionQuestion --> Question
+ReponseQuestion --> Question
+BrancheQuestion --> "*" Question
+ReponseQuestion --> Apprenant
+ReponseQuestion --> "*" OptionQuestion
+Qcm --> BrancheQuestion
+
+
+
