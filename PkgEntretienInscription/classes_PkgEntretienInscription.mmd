@@ -1,0 +1,44 @@
+classDiagram
+
+namespace PkgEntretienInscription {
+  class Inscrit 
+  class Formateur
+  class Entretien
+  class ReponseEntretien
+  class Question
+  class ReponseQuestion
+  class EvaluationQuestion
+  class BrancheQuestion
+}
+
+class Entretien{
+  dateEntretien : date
+}
+
+
+class EvaluationQuestion{
+  note : float
+  remarques : string
+}
+
+
+namespace PkgTestInscription {
+  class Test
+  class ReponseTest
+}
+
+
+namespace PkgUtilisateurs {
+  class Formateur 
+}
+
+
+Inscrit --> "1" ReponseTest
+Inscrit --> "1" ReponseEntretien
+Formateur "*" -- "*" ReponseEntretien
+BrancheQuestion "1" --> "*" Question
+EvaluationQuestion "*" --> "1" ReponseQuestion
+EvaluationQuestion "*" --> "1" Formateur
+ReponseEntretien --> "1" Entretien
+BrancheQuestion --> Entretien
+Question --> ReponseQuestion
